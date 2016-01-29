@@ -23,11 +23,11 @@ api = tweepy.API(auth)
 
 #Change count to change the number of tweets returned
 
-tweetCount = 20
+tweetCount = 10
 tweets = []
 ticker = ""
 
-results = api.search(q=("#pope"),count = tweetCount)
+results = api.search(q=("#happiness"),count = tweetCount)
 
 i = 0
 for result in results:
