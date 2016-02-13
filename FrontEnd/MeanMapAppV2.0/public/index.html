@@ -2,75 +2,402 @@
 <!-- Declares meanMapApp as the starting Angular module -->
 <html class="no-js" ng-app="meanMapApp">
 <head>
-    <meta charset="utf-8">
-    <title>Scotch MEAN Map</title>
-    <meta name="description" content="An example demonstrating Google Map integration with MEAN Apps">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>Scotch MEAN Map</title>
+  <meta name="description" content="An example demonstrating Google Map integration with MEAN Apps">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
-    <link rel="stylesheet" href="style.css"/>
+  <!-- CSS -->
+  <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+  <link rel="stylesheet" href="style.css"/>
 
-    <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrn605l7RPadiwdzsOlRw9O28lxfYBJ6s"></script>
+  <!-- Google Maps API -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrn605l7RPadiwdzsOlRw9O28lxfYBJ6s"></script>
 
-    <!-- Modernizr -->
-    <script src="../bower_components/modernizr/bin/modernizr"></script>
+  <!-- Modernizr -->
+  <script src="../bower_components/modernizr/bin/modernizr"></script>
 
-    <!-- JS Source -->
-    <script src="../bower_components/jquery/dist/jquery.js"></script>
-    <script src="../bower_components/angular/angular.js"></script>
-    <script src="../bower_components/angular-route/angular-route.js"></script>
-    <script src="../bower_components/angularjs-geolocation/dist/angularjs-geolocation.min.js"></script>
+  <!-- JS Source -->
+  <script src="../bower_components/jquery/dist/jquery.js"></script>
+  <script src="../bower_components/angular/angular.js"></script>
+  <script src="../bower_components/angular-route/angular-route.js"></script>
+  <script src="../bower_components/angularjs-geolocation/dist/angularjs-geolocation.min.js"></script>
 
-    <!-- Angular Files -->
-    <script src="js/app.js"></script>
-    <script src="js/gservice.js"></script>
-    <script src="js/addCtrl.js"></script>
-    <script src="js/queryCtrl.js"></script>
-    <script src="js/headerCtrl.js"></script>
+  <!-- Angular Files -->
+  <script src="js/app.js"></script>
+  <script src="js/gservice.js"></script>
+  <script src="js/addCtrl.js"></script>
+  <script src="js/queryCtrl.js"></script>
+  <script src="js/headerCtrl.js"></script>
+
+  <script type="text/javascript" src="../bower_components/angular/fusioncharts/js/fusioncharts.js"></script>
+  <script type="text/javascript" src="../bower_components/angular/fusioncharts/js/themes/fusioncharts.theme.fint.js"></script>
+
 </head>
 
 <body>
-<!--[if lt IE 10]>
-<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-<![endif]-->
+  <!--[if lt IE 10]>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
 
-<div class="container">
+  <div class="container">
     <!-- Header Menu. Note use of headerCtrl -->
     <div class="header" ng-controller="headerCtrl">
 
-        <!-- Header items are made active upon selection -->
-        <ul class="nav nav-pills pull-right">
-             <li ng-class="{ active: isActive('/join')}"><a href="/#/join">Join the Team</a></li>
-            <li ng-class="{ active: isActive('/find')}"><a href="/#/find">Find Teammates</a></li>
-        </ul>
+      <!-- Header items are made active upon selection -->
+      <ul class="nav nav-pills pull-right">
+        <li ng-class="{ active: isActive('/join')}"><a href="/#/join">Join the Team</a></li>
+        <li ng-class="{ active: isActive('/find')}"><a href="/#/find">Find Teammates</a></li>
+      </ul>
 
-        <!-- Header Title -->
-        <h3 class="text-muted">The Scotch MEAN MapApp</h3>
+      <!-- Header Title -->
+      <h3 class="text-muted">The Scotch MEAN MapApp</h3>
     </div>
 
     <!-- Map and Side Panel -->
     <div class="row content">
 
-        <!-- Google Map -->
-        <div class="col-md-7">
-            <div id="map"></div>
-        </div>
+      <!-- Google Map -->
+      <div class="col-md-7">
+        <div id="map"></div>
+      </div>
 
-        <!-- Side Panel (Controlled by ng-view) -->
-        <div ng-view></div>
+      <!-- Side Panel (Controlled by ng-view) -->
+      <div ng-view></div>
 
     </div>
     <hr/>
+    <script type="text/javascript">
+    FusionCharts.ready(function(){
+      var revenueChart = new FusionCharts({
+        "type": "column2d",
+        "renderAt": "chartContainer",
+        "width": "500",
+        "height": "300",
+        "dataFormat": "json",
+        "dataSource":  {
+          "chart": {
+            "caption": "Monthly revenue for last year",
+            "subCaption": "Harry's SuperMart",
+            "xAxisName": "Month",
+            "yAxisName": "Revenues (In USD)",
+            "theme": "fint"
+          },
+          "data": [
+            {
+              "label": "Jan",
+              "value": "420000"
+            },
+            {
+              "label": "Feb",
+              "value": "810000"
+            },
+            {
+              "label": "Mar",
+              "value": "720000"
+            },
+            {
+              "label": "Apr",
+              "value": "550000"
+            },
+            {
+              "label": "May",
+              "value": "910000"
+            },
+            {
+              "label": "Jun",
+              "value": "510000"
+            },
+            {
+              "label": "Jul",
+              "value": "680000"
+            },
+            {
+              "label": "Aug",
+              "value": "620000"
+            },
+            {
+              "label": "Sep",
+              "value": "610000"
+            },
+            {
+              "label": "Oct",
+              "value": "490000"
+            },
+            {
+              "label": "Nov",
+              "value": "900000"
+            },
+            {
+              "label": "Dec",
+              "value": "730000"
+            }
+          ]
+        }
+
+      });
+      revenueChart.render();
+    })
+    </script>
+    <script type="text/javascript">
+    FusionCharts.ready(function () {
+      var visitChart = new FusionCharts({
+        type: 'msline',
+        renderAt: 'chartContainer2',
+        width: '550',
+        height: '350',
+        dataFormat: 'json',
+        dataSource: {
+          "chart": {
+            "caption": "Number of visitors last week",
+            "subCaption": "Bakersfield Central vs Los Angeles Topanga",
+            "captionFontSize": "14",
+            "subcaptionFontSize": "14",
+            "subcaptionFontBold": "0",
+            "paletteColors": "#0075c2,#1aaf5d",
+            "bgcolor": "#ffffff",
+            "showBorder": "0",
+            "showShadow": "0",
+            "showCanvasBorder": "0",
+            "usePlotGradientColor": "0",
+            "legendBorderAlpha": "0",
+            "legendShadow": "0",
+            "showAxisLines": "0",
+            "showAlternateHGridColor": "0",
+            "divlineThickness": "1",
+            "divLineIsDashed": "1",
+            "divLineDashLen": "1",
+            "divLineGapLen": "1",
+            "xAxisName": "Day",
+            "showValues": "0"
+          },
+          "categories": [
+            {
+              "category": [
+                { "label": "Mon" },
+                { "label": "Tue" },
+                { "label": "Wed" },
+                {
+                  "vline": "true",
+                  "lineposition": "0",
+                  "color": "#6baa01",
+                  "labelHAlign": "center",
+                  "labelPosition": "0",
+                  "label": "National holiday",
+                  "dashed":"1"
+                },
+                { "label": "Thu" },
+                { "label": "Fri" },
+                { "label": "Sat" },
+                { "label": "Sun" }
+              ]
+            }
+          ],
+          "dataset": [
+            {
+              "seriesname": "Bakersfield Central",
+              "data": [
+                { "value": "15123" },
+                { "value": "14233" },
+                { "value": "25507" },
+                { "value": "9110" },
+                { "value": "15529" },
+                { "value": "20803" },
+                { "value": "19202" }
+              ]
+            },
+            {
+              "seriesname": "Los Angeles Topanga",
+              "data": [
+                { "value": "13400" },
+                { "value": "12800" },
+                { "value": "22800" },
+                { "value": "12400" },
+                { "value": "15800" },
+                { "value": "19800" },
+                { "value": "21800" }
+              ]
+            }
+          ],
+          "trendlines": [
+            {
+              "line": [
+                {
+                  "startvalue": "17022",
+                  "color": "#6baa01",
+                  "valueOnRight": "1",
+                  "displayvalue": "Average"
+                }
+              ]
+            }
+          ]
+        }
+      }).render();
+    });
+    </script>
+    <script type = "text/javascript">
+    FusionCharts.ready(function () {
+        var hourlySalesChart = new FusionCharts({
+            type: 'multiaxisline',
+            renderAt: 'chartContainer3',
+            width: '600',
+            height: '350',
+            dataFormat: 'json',
+            dataSource: {
+                "chart": {
+                    "caption": "Revenue Analysis",
+                    "subcaption": "Last 12 weeks",
+                    "baseFontColor" : "#333333",
+                    "baseFont" : "Helvetica Neue,Arial",
+                    "xaxisname": "Week of Year",
+                    "showvalues": "0",
+                    "numvdivlines": "2",
+                    "paletteColors" : "#0075c2,#1aaf5d,#f2c500,#f45b00",
+                    "bgColor" : "#ffffff",
+                    "canvasBgColor" : "#ffffff",
+                    "captionFontSize" : "13",
+                    "subcaptionFontSize" : "13",
+                    "subcaptionFontBold" : "0",
+                    "showBorder" : "0",
+                    "showPlotBorder": "0",
+                    "showXAxisLine" : "1",
+                    "showShadow" : "0",
+                    "showCanvasBorder" : "0",
+                    "showAlternateHGridColor" : "0",
+                    "showalternatevgridcolor": "1",
+                    "usePlotGradientColor" :"0",
+                    "divlineColor" : "#999999",
+                    "divlineThickness" : "1",
+                    "divLineIsDashed" : "1",
+                    "divLineDashLen" : "1",
+                    "divLineGapLen" : "1",
+                    "xAxisLineThickness" : "1",
+                    "xAxisLineColor" : "#999999",
+                    "legendBorderAlpha": "0",
+                    "legendShadow": "0",
+                    "alignCaptionWithCanvas": "0"
+                },
+                "categories": [
+                    {
+                        "category": [
+                            { "label": "1" },
+                            { "label": "2" },
+                            { "label": "3" },
+                            { "label": "4" },
+                            { "label": "5" },
+                            { "label": "6" },
+                            { "label": "7" },
+                            { "label": "8" },
+                            { "label": "9" },
+                            { "label": "10" },
+                            { "label": "11" },
+                            { "label": "12" }
+                        ]
+                    }
+                ],
+                "axis": [
+                    {
+                        "title": "Revenue",
+                        "titlepos": "left",
+                        "tickwidth": "10",
+                        "numberPrefix": "$",
+                        "divlineisdashed": "1",
+                        "dataset": [
+                            {
+                                "seriesname": "Revenue",
+                                "linethickness": "3",
+                                "data": [
+                                    { "value": "137500" },
+                                    { "value": "124350" },
+                                    { "value": "156700" },
+                                    { "value": "131450" },
+                                    { "value": "208300" },
+                                    { "value": "219900" },
+                                    { "value": "227500" },
+                                    { "value": "254300" },
+                                    { "value": "155900" },
+                                    { "value": "105650" },
+                                    { "value": "120950" },
+                                    { "value": "127500" }
+                                ]
+                            }
+                        ]
+                    }, {
+                        "title": "Orders",
+                        "axisonleft": "0",
+                        "titlepos": "right",
+                        "numdivlines": "8",
+                        "tickwidth": "10",
+                        "divlineisdashed": "1",
+                        "dataset": [
+                            {
+                                "seriesname": "Orders",
+                                "data": [
+                                    { "value": "22567" },
+                                    { "value": "21348" },
+                                    { "value": "24846" },
+                                    { "value": "19237" },
+                                    { "value": "20672" },
+                                    { "value": "23403" },
+                                    { "value": "30278" },
+                                    { "value": "26719" },
+                                    { "value": "21940" },
+                                    { "value": "24396" },
+                                    { "value": "22340" },
+                                    { "value": "25439" }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "title": "Footfalls",
+                        "titlepos": "RIGHT",
+                        "axisonleft": "0",
+                        "numdivlines": "5",
+                        "tickwidth": "10",
+                        "numberSuffix": "",
+                        "divlineisdashed": "1",
+                        "dataset": [
+                            {
+                                "seriesname": "Footfalls",
+                                "data": [
+                                    { "value": "68473" },
+                                    { "value": "57934" },
+                                    { "value": "78925" },
+                                    { "value": "69213" },
+                                    { "value": "74892" },
+                                    { "value": "81123" },
+                                    { "value": "90086" },
+                                    { "value": "91174" },
+                                    { "value": "68934" },
+                                    { "value": "80934" },
+                                    { "value": "73634" },
+                                    { "value": "84453" }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }).render();
+
+    });
+    </script>
+    <body>
+      <div id="chartContainer">FusionCharts XT will load here!</div>
+      <div id="chartContainer2">FusionCharts XT will load here!</div>
+      <div id="chartContainer3">FusionCharts XT will load here!</div>
+
+    </body>
+
 
     <!-- Footer -->
     <div class="footer">
-        <p class="text-center"><span class="glyphicon glyphicon-check"></span> Created by Ahmed Haque for Scotch IO -
-            <a href="https://scotch.io/">App Tutorial</a> | <a href="https://github.com/afhaque/MeanMapAppV2.0">Github Repo</a></p>
+      <p class="text-center"><span class="glyphicon glyphicon-check"></span> Created by Ahmed Haque for Scotch IO -
+        <a href="https://scotch.io/">App Tutorial</a> | <a href="https://github.com/afhaque/MeanMapAppV2.0">Github Repo</a></p>
+      </div>
+
     </div>
 
-</div>
-
-</body>
-</html>
+  </body>
+  </html>
