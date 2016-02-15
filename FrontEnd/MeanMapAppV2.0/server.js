@@ -7,6 +7,7 @@ var database        = require('./app/config');
 var morgan          = require('morgan');
 var bodyParser      = require('body-parser');
 var methodOverride  = require('method-override');
+var assert 	    = require('assert');
 var app             = express();
 
 // Express Configuration
@@ -27,6 +28,20 @@ app.use(methodOverride());
 // Routes
 // ------------------------------------------------------
 require('./app/routes.js')(app);
+
+//casandra connection
+
+var cassandra = require('cassandra-driver');
+var client = new cassandra.Client({ contactPoints: ['128.138.202.110', '128.138.202.117'], keyspace: 'candidates'});
+var query = 'SELECT * FROM trump';
+client.execute(query, ['tweet_text'], function(err, result) {
+  assert.ifError(err);
+  var resultLength = result.rows.length;
+  console.log(resultLength);
+  for (var i = 0; i < resultLength; i++) {
+     console.log(result.rows[i].tweet_text);
+  } 
+});
 
 // Listen
 // -------------------------------------------------------
