@@ -1,5 +1,5 @@
 # Creating the Collection
-''
+```
 $ mongo
 > use DATABASENAME
 > db.createCollection(Tweets, { name: <string>
@@ -7,4 +7,4 @@ $ mongo
                               number: <number>,
                               dateStart: <number>,
                               dateEnd: <number> })
-                              ''
+```
