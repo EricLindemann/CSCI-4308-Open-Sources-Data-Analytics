@@ -4,11 +4,11 @@ addCtrl.controller('addCtrl', function($scope, $http, $rootScope, geolocation, g
 
     // Initializes Variables
     // ----------------------------------------------------------------------------
+
     $scope.formData = {};
     var coords = {};
     var lat = 0;
     var long = 0;
-
     // Set initial coordinates to the center of the US
     $scope.formData.longitude = -98.350;
     $scope.formData.latitude = 39.500;
@@ -87,4 +87,3 @@ addCtrl.controller('addCtrl', function($scope, $http, $rootScope, geolocation, g
             });
     };
 });
-

@@ -1,6 +1,6 @@
 // Create the headerCtrl module and controller. Note that it depends on $location service
-var headerCtrl = angular.module('headerCtrl', []);
-headerCtrl.controller('headerCtrl', function($scope, $http, $location) {
+var tryCtrl = angular.module('headerCtrl', []);
+tryCtrl.controller('headerCtrl', function($scope, $http, $location) {
     $scope.todos = {};
     $scope.sayHello = function() {
       $http.get('data.json')

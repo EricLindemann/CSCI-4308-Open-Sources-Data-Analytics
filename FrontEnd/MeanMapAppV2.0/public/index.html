@@ -52,6 +52,30 @@
 
       <!-- Header Title -->
       <h3 class="text-muted">The Scotch MEAN MapApp</h3>
+      <!--<div ng-init="sayHello()"></div>
+      {{todos}}
+    -->
+      <script = "text/javascript">
+
+
+        //var todos = $('[ng-controller="headerCtrl"]').scope().todos;
+        //console.log(todos);
+      </script>
+      <title>My First chart using FusionCharts - JSON data URL</title>
+      <script type="text/javascript" src="FusionCharts/FusionCharts.js"></script>
+    </head>
+    <body>
+      <div id="chartContainer">FusionCharts will load here!</div>
+      <script type="text/javascript"><!--
+
+        var myChart = new FusionCharts( "FusionCharts/Column2D.swf",
+                                        "myChartId", "500", "300", "0", "0" );
+        myChart.setJSONUrl("data.json");
+        myChart.render("chartContainer");
+
+      // -->
+      </script>
+
     </div>
 
     <!-- Map and Side Panel -->
@@ -67,78 +91,15 @@
 
     </div>
     <hr/>
-    <script type="text/javascript">
-    FusionCharts.ready(function(){
-      var revenueChart = new FusionCharts({
-        "type": "column2d",
-        "renderAt": "chartContainer",
-        "width": "500",
-        "height": "300",
-        "dataFormat": "json",
-        "dataSource":  {
-          "chart": {
-            "caption": "Monthly revenue for last year",
-            "subCaption": "Harry's SuperMart",
-            "xAxisName": "Month",
-            "yAxisName": "Revenues (In USD)",
-            "theme": "fint"
-          },
-          "data": [
-            {
-              "label": "Jan",
-              "value": "420000"
-            },
-            {
-              "label": "Feb",
-              "value": "810000"
-            },
-            {
-              "label": "Mar",
-              "value": "720000"
-            },
-            {
-              "label": "Apr",
-              "value": "550000"
-            },
-            {
-              "label": "May",
-              "value": "910000"
-            },
-            {
-              "label": "Jun",
-              "value": "510000"
-            },
-            {
-              "label": "Jul",
-              "value": "680000"
-            },
-            {
-              "label": "Aug",
-              "value": "620000"
-            },
-            {
-              "label": "Sep",
-              "value": "610000"
-            },
-            {
-              "label": "Oct",
-              "value": "490000"
-            },
-            {
-              "label": "Nov",
-              "value": "900000"
-            },
-            {
-              "label": "Dec",
-              "value": "730000"
-            }
-          ]
-        }
+    asfd
+    Your name:
+    <input type="text" ng-model="username">
+    <button ng-click='sayHello()'>greet</button>
+    Greeting is: {{greeting}}
+    <hr/>
+    </div>
 
-      });
-      revenueChart.render();
-    })
-    </script>
+
     <script type="text/javascript">
     FusionCharts.ready(function () {
       var visitChart = new FusionCharts({

@@ -14,6 +14,12 @@ var app = angular.module('meanMapApp', ['addCtrl', 'queryCtrl', 'headerCtrl', 'g
             controller: 'queryCtrl',
             templateUrl: 'partials/queryForm.html',
 
+        // Try out making your own graphs
+        }).when('/try',{
+            controller: 'tryCtrl',
+            templateUrl: 'partials/tryForm.html',
+
+
         // All else forward to the Join Team Control Panel
         }).otherwise({redirectTo:'/join'})
     });
